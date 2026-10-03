@@ -273,7 +273,7 @@ nav.scrolled {
 /* thermal bg — must be clearly visible */
 .hero-bg {
   position: absolute; inset: 0; z-index: 0;
-  background: url('Screenshot\ 2026-04-09\ 164827.png') center center / cover no-repeat;
+  background: url(bg-hero.jpg) center center / cover no-repeat;
   animation: bgdrift 20s ease-in-out infinite alternate;
 }
 @keyframes bgdrift {
