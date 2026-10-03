@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Althaf Dhia Hamid — Fullstack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .about-journey-cta { margin-top: 2rem; }
+    .btn-journey {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(167,139,250,0.1));
+      border: 1px solid rgba(167,139,250,0.35); color: #c4b5fd;
+      padding: 0.85rem 1.5rem; border-radius: 12px;
+      font-family: 'Space Mono', monospace; font-size: 0.82rem;
+      text-decoration: none; letter-spacing: 0.02em;
+      transition: all 0.3s ease; cursor: pointer; position: relative; overflow: hidden;
+    }
+    .btn-journey::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(124,58,237,0.25), rgba(167,139,250,0.15));
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .btn-journey:hover::before { opacity: 1; }
+    .btn-journey:hover {
+      border-color: rgba(167,139,250,0.7); color: #e9d5ff;
+      transform: translateY(-2px); box-shadow: 0 8px 30px rgba(124,58,237,0.25);
+    }
+    .btn-journey-arr { transition: transform 0.3s; }
+    .btn-journey:hover .btn-journey-arr { transform: translateX(4px); }
+    .btn-journey-contact {
+      background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(167,139,250,0.12));
+      border-color: rgba(167,139,250,0.4);
+    }
+    .nav-journey-link { color: #a78bfa !important; font-weight: 700; }
+  </style>
+</head>
+<body class="intro-active">
+
+  <!-- ═══════ INTRO / LOADING SCREEN ═══════ -->
+  <div id="intro-screen">
+    <div class="intro-name" id="intro-name"></div>
+    <div class="intro-bar-wrap">
+      <div class="intro-bar-fill"></div>
+    </div>
+  </div>
+
+  <div class="noise-overlay"></div>
+  <div class="mouse-glow" id="mouse-glow"></div>
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ═══════ NAV ═══════ -->
+  <nav id="nav">
+    <a class="nav-logo" href="#" aria-label="Althaf Dhia Hamid">
+      <div class="logo-mark">
+  <svg class="logo-svg" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="lglow" x="-40%" y="-40%" width="180%" height="180%">
+        <feGaussianBlur stdDeviation="2.5" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <linearGradient id="lgrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#a78bfa"/>
+        <stop offset="100%" stop-color="#7c3aed"/>
+      </linearGradient>
+    </defs>
+    <circle cx="21" cy="21" r="19" fill="none" stroke="#5a3fa0" stroke-width="1" opacity="0.4" filter="url(#lglow)"/>
+    <circle cx="21" cy="21" r="17" fill="none" stroke="url(#lgrad)" stroke-width="1.5"/>
+    <circle cx="21" cy="21" r="13" fill="none" stroke="#3d2a70" stroke-width="0.8" opacity="0.5"/>
+    <circle class="logo-dot ld-1" cx="21" cy="4"  r="2" fill="#a78bfa" filter="url(#lglow)"/>
+    <circle class="logo-dot ld-2" cx="38" cy="21" r="2" fill="#a78bfa" filter="url(#lglow)"/>
+    <circle class="logo-dot ld-3" cx="21" cy="38" r="2" fill="#a78bfa" filter="url(#lglow)"/>
+    <circle class="logo-dot ld-4" cx="4"  cy="21" r="2" fill="#a78bfa" filter="url(#lglow)"/>
+    <text x="21" y="27" font-family="Georgia, serif" font-size="18" font-weight="700"
+      fill="#c0a0ff" text-anchor="middle" filter="url(#lglow)">A</text>
+  </svg>
+  <div class="logo-orbit"><div class="orbit-particle"></div></div>
+</div>
+<div class="logo-text-mark">
+  <span class="ltm-main">TOP</span>
+  <span class="ltm-sub">dev</span>
+</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+
+    </ul>
+    <div class="nav-badge">
+      <span class="badge-dot"></span> Available
+    </div>
+  </nav>
+
+  <!-- ═══════ HERO ═══════ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grad"></div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <p class="hero-eyebrow"><span class="eline"></span>Portfolio · 2026</p>
+        <h1 class="hero-name">
+          <span class="hn-a">Althaf Dhia Hamid</span>
+          <span class="hn-b">Hamid.</span>
+        </h1>
+        <div class="hero-mid-gap"></div>
+        <div class="hero-pills">
+          <span class="pill pill-acc">⚡ Fullstack Developer</span>
+          <span class="pill">📍 Indonesia</span>
+          <span class="pill">🎂 15 y.o.</span>
+        </div>
+        <div class="hero-cta">
+          <a href="#projects" class="btn-fill">View Projects</a>
+          <a href="#contact" class="btn-ghost">Say Hi →</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="code-card">
+          <div class="cc-bar">
+            <span class="mac-r"></span><span class="mac-y"></span><span class="mac-g"></span>
+            <span class="cc-filename">profile.js</span>
+            <span class="cc-badge">JS</span>
+          </div>
+          <div class="cc-body" id="cc-body"></div>
+          <div class="cc-foot">
+            <span>Ln 16</span><span>UTF-8</span><span class="cc-lang">JavaScript</span>
+          </div>
+        </div>
+        <div class="chip chip-a">
+          <span class="chip-ico"></span>
+          <div><p class="chip-n">10+</p><p class="chip-l">Projects</p></div>
+        </div>
+        <div class="chip chip-b">
+          <span class="chip-ico"></span>
+          <div><p class="chip-n">5+</p><p class="chip-l">Teachings</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>scroll</span>
+      <div class="sh-track"><div class="sh-thumb"></div></div>
+    </div>
+  </section>
+
+  <!-- ═══════ YOUTUBE / CREATOR ═══════ -->
+  <section id="youtube" style="padding: 5rem 0; position: relative; overflow: hidden;">
+    <style>
+      /* ── YouTube Section Upgrade ── */
+      .yt-idx-wrap { position: relative; z-index: 1; }
+
+      /* Ambient background */
+      .yt-idx-bg {
+        position: absolute; inset: 0; z-index: 0; pointer-events: none;
+        background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(239,68,68,0.06) 0%, transparent 70%);
+      }
+      .yt-idx-bg::before {
+        content: ''; position: absolute; top: -80px; right: -100px;
+        width: 400px; height: 400px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(239,68,68,0.08) 0%, transparent 70%);
+        filter: blur(60px);
+      }
+      .yt-idx-bg::after {
+        content: ''; position: absolute; bottom: -60px; left: -80px;
+        width: 300px; height: 300px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(124,58,237,0.07) 0%, transparent 70%);
+        filter: blur(50px);
+      }
+
+      /* Header row */
+      .yt-idx-header {
+        display: flex; align-items: flex-end; justify-content: space-between;
+        margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem;
+      }
+      .yt-idx-header-left { display: flex; flex-direction: column; gap: 0.5rem; }
+      .yt-idx-eyebrow {
+        display: flex; align-items: center; gap: 0.75rem;
+        font-family: 'Space Mono', monospace; font-size: 0.7rem;
+        color: #6b7280; letter-spacing: 0.12em; text-transform: uppercase;
+      }
+      .yt-idx-eyebrow-line { width: 32px; height: 1px; background: #ef4444; opacity: 0.5; }
+      .yt-idx-title {
+        font-family: 'Syne', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 900; color: #f3f4f6; line-height: 1.05; margin: 0;
+      }
+      .yt-idx-title em {
+        font-family: 'Instrument Serif', serif; font-style: italic;
+        background: linear-gradient(135deg, #ef4444, #f97316);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      }
+      .yt-idx-header-right {
+        display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+      }
+      .yt-idx-pill {
+        display: flex; align-items: center; gap: 0.5rem;
+        background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2);
+        color: #fca5a5; padding: 0.5rem 1rem; border-radius: 999px;
+        font-family: 'Space Mono', monospace; font-size: 0.72rem;
+        letter-spacing: 0.05em;
+      }
+      .yt-idx-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: #ef4444; animation: pulse 2s infinite; }
+
+      /* Main grid */
+      .yt-idx-grid {
+        display: grid; grid-template-columns: 1fr 1fr;
+        gap: 2rem; align-items: start; margin-bottom: 2.5rem;
+      }
+      @media (max-width: 900px) { .yt-idx-grid { grid-template-columns: 1fr; } }
+
+      /* Player card */
+      .yt-idx-player-card {
+        background: rgba(17,17,17,0.8); border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 20px; overflow: hidden;
+        box-shadow: 0 25px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(239,68,68,0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .yt-idx-player-card:hover { transform: translateY(-4px); box-shadow: 0 35px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(239,68,68,0.2); }
+      .yt-idx-player-bar {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 0.75rem 1rem; background: rgba(239,68,68,0.06);
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+      }
+      .yt-idx-bar-dots { display: flex; gap: 0.4rem; }
+      .yt-idx-bar-dots span { width: 10px; height: 10px; border-radius: 50%; }
+      .yt-idx-bar-dots span:nth-child(1) { background: #ef4444; }
+      .yt-idx-bar-dots span:nth-child(2) { background: #f59e0b; }
+      .yt-idx-bar-dots span:nth-child(3) { background: #22c55e; }
+      .yt-idx-bar-url { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: #6b7280; }
+      .yt-idx-bar-live {
+        font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #ef4444;
+        padding: 0.2rem 0.5rem; border: 1px solid rgba(239,68,68,0.4);
+        border-radius: 4px; letter-spacing: 0.08em;
+      }
+      .yt-idx-iframe-wrap { position: relative; aspect-ratio: 16/9; }
+      .yt-idx-iframe-wrap iframe {
+        width: 100%; height: 100%; display: block; border: none;
+      }
+      .yt-idx-player-footer {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 0.85rem 1rem; border-top: 1px solid rgba(255,255,255,0.05);
+      }
+      .yt-idx-channel-info { display: flex; align-items: center; gap: 0.75rem; }
+      .yt-idx-avatar {
+        width: 34px; height: 34px; border-radius: 50%;
+        background: linear-gradient(135deg, #ef4444, #7c3aed);
+        display: flex; align-items: center; justify-content: center;
+        font-family: 'Syne', sans-serif; font-weight: 900; font-size: 0.8rem; color: white;
+      }
+      .yt-idx-channel-name { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #e5e7eb; line-height: 1.5; }
+      .yt-idx-channel-handle { font-size: 0.6rem; color: #6b7280; }
+      .yt-idx-sub-btn {
+        display: flex; align-items: center; gap: 0.4rem;
+        background: #ef4444; color: white; border: none;
+        padding: 0.5rem 0.9rem; border-radius: 8px; cursor: pointer;
+        font-family: 'Space Mono', monospace; font-size: 0.65rem;
+        text-decoration: none; transition: all 0.2s;
+      }
+      .yt-idx-sub-btn:hover { background: #dc2626; transform: scale(1.03); }
+
+      /* Info column */
+      .yt-idx-info-col { display: flex; flex-direction: column; gap: 1.5rem; }
+      .yt-idx-info-top {
+        background: rgba(17,17,17,0.5); border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 16px; padding: 1.75rem;
+      }
+      .yt-idx-tag {
+        display: inline-block; padding: 0.25rem 0.7rem;
+        background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.25);
+        color: #fca5a5; border-radius: 4px;
+        font-family: 'Space Mono', monospace; font-size: 0.65rem;
+        letter-spacing: 0.08em; margin-bottom: 0.75rem;
+      }
+      .yt-idx-creator-h {
+        font-family: 'Syne', sans-serif; font-size: clamp(1.5rem, 3vw, 2.2rem);
+        font-weight: 900; color: #f3f4f6; line-height: 1.1; margin: 0 0 0.75rem;
+      }
+      .yt-idx-creator-h em {
+        font-family: 'Instrument Serif', serif; font-style: italic; color: #ef4444;
+      }
+      .yt-idx-desc { color: #9ca3af; font-size: 0.88rem; line-height: 1.75; margin: 0 0 1rem; }
+      .yt-idx-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+      .yt-idx-cat-tag {
+        padding: 0.3rem 0.75rem;
+        background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+        color: #d1d5db; border-radius: 6px;
+        font-family: 'Space Mono', monospace; font-size: 0.68rem;
+      }
+
+      /* Stats row */
+      .yt-idx-stats {
+        display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+        background: rgba(255,255,255,0.05); border-radius: 14px; overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.06);
+      }
+      .yt-idx-stat {
+        background: rgba(12,12,12,0.9); padding: 1.1rem 0.75rem; text-align: center;
+        transition: background 0.2s;
+      }
+      .yt-idx-stat:hover { background: rgba(239,68,68,0.06); }
+      .yt-idx-stat-n {
+        font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 900;
+        color: #f3f4f6; line-height: 1;
+      }
+      .yt-idx-stat-n span { color: #ef4444; font-size: 0.9rem; }
+      .yt-idx-stat-l { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6b7280; margin-top: 0.25rem; }
+
+      /* Video thumbnails grid */
+      .yt-idx-vids {
+        display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem;
+        margin-bottom: 2rem;
+      }
+      @media (max-width: 700px) { .yt-idx-vids { grid-template-columns: repeat(2, 1fr); } }
+      .yt-idx-vid {
+        border-radius: 10px; overflow: hidden; position: relative; cursor: pointer;
+        background: #111; border: 1px solid rgba(255,255,255,0.07);
+        transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      }
+      .yt-idx-vid:hover { transform: translateY(-3px); border-color: rgba(239,68,68,0.3); box-shadow: 0 8px 30px rgba(239,68,68,0.1); }
+      .yt-idx-vid.active { border-color: rgba(239,68,68,0.5); box-shadow: 0 0 0 1px rgba(239,68,68,0.2); }
+      .yt-idx-vid-thumb { position: relative; aspect-ratio: 16/9; overflow: hidden; }
+      .yt-idx-vid-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
+      .yt-idx-vid:hover .yt-idx-vid-thumb img { transform: scale(1.05); }
+      .yt-idx-vid-ov {
+        position: absolute; inset: 0; background: rgba(0,0,0,0.35);
+        display: flex; align-items: center; justify-content: center;
+        opacity: 0; transition: opacity 0.2s;
+      }
+      .yt-idx-vid:hover .yt-idx-vid-ov { opacity: 1; }
+      .yt-idx-vid-play {
+        width: 36px; height: 36px; border-radius: 50%;
+        background: rgba(239,68,68,0.9); display: flex; align-items: center; justify-content: center;
+        color: white; font-size: 0.8rem; padding-left: 2px;
+      }
+      .yt-idx-vid-num {
+        position: absolute; top: 6px; left: 8px;
+        font-family: 'Space Mono', monospace; font-size: 0.6rem; color: rgba(255,255,255,0.6);
+      }
+      .yt-idx-vid-info { padding: 0.5rem 0.6rem; }
+      .yt-idx-vid-badge {
+        display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px;
+        font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.05em;
+        margin-bottom: 0.2rem;
+      }
+      .yt-idx-vid-badge.red { background: rgba(239,68,68,0.15); color: #fca5a5; }
+      .yt-idx-vid-badge.purp { background: rgba(167,139,250,0.15); color: #c4b5fd; }
+      .yt-idx-vid-badge.cyan { background: rgba(34,211,238,0.15); color: #67e8f9; }
+      .yt-idx-vid-badge.gold { background: rgba(251,191,36,0.15); color: #fde68a; }
+      .yt-idx-vid-label { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6b7280; }
+
+      /* CTA row */
+      .yt-idx-cta-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+      .yt-idx-sub-cta {
+        display: inline-flex; align-items: center; gap: 0.6rem;
+        background: linear-gradient(135deg, #ef4444, #dc2626); color: white;
+        padding: 0.9rem 1.75rem; border-radius: 12px;
+        font-family: 'Space Mono', monospace; font-size: 0.78rem;
+        text-decoration: none; font-weight: 700; letter-spacing: 0.03em;
+        transition: all 0.3s; box-shadow: 0 4px 20px rgba(239,68,68,0.3);
+      }
+      .yt-idx-sub-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(239,68,68,0.45); background: linear-gradient(135deg, #f97316, #ef4444); }
+      .yt-idx-more-link {
+        font-family: 'Space Mono', monospace; font-size: 0.72rem; color: #6b7280;
+        text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
+        transition: color 0.2s;
+      }
+      .yt-idx-more-link:hover { color: #a78bfa; }
+    </style>
+
+    <div class="yt-idx-bg"></div>
+    <div class="yt-idx-wrap wrap">
+  <!-- ═══════ ABOUT ═══════ -->
+  <section id="about">
+    <div class="wrap">
+      <div class="about-new reveal">
+        <div class="about-float-col reveal-scale">
+          <div class="about-float-frame">
+            <img src="hero.jpg" alt="Althaf Dhia Hamid" />
+            <div class="float-frame-deco"></div>
+            <div class="emoji-float ef-1">☕</div>
+            <div class="emoji-float ef-2">💻</div>
+            <div class="emoji-float ef-3">🔥</div>
+            <div class="emoji-float ef-4">⚡</div>
+          </div>
+        </div>
+        <div class="about-text-col">
+          <div class="about-label-row"><span class="about-label-line"></span>About</div>
+          <h2 class="about-heading">Who<br><em>Am I.</em></h2>
+          <div class="acc-bar"></div>
+          <p class="about-lead">I'm a <strong>16-year-old Developer</strong> from Indonesia who always willing to learn, create, and inspire</p>
+          <p class="about-body">While most people my age are just getting started, I'm already building complete products with <strong>Laravel, ReactJS, and MySQL</strong>. I don't just watch tutorials — I build things that actually work.</p>
+          <p class="about-body">I learn how to Speak infront of the people, I Learn Video editing, Visual Design, And the most important things, I learn how to build a <strong>Minecraft Server</strong> by myself. </p>
+          <div class="about-stats-row stagger-children">
+            <div class="ast"><span class="ast-n">16</span><span class="ast-l">Years Old</span></div>
+            <div class="ast-div"></div>
+            <div class="ast"><span class="ast-n">10+</span><span class="ast-l">Project</span></div>
+            <div class="ast-div"></div>
+            <div class="ast"><span class="ast-n">8</span><span class="ast-l">Skills</span></div>
+          </div>
+          <div class="about-tags">
+            <span class="atag">Problem Solver</span>
+            <span class="atag">Fast Learner</span>
+            <span class="atag">Self-Taught</span>
+            <span class="atag">Content Creator</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ PROJECTS ═══════ -->
+  <section id="projects">
+    <style>
+      #projects {
+        padding: 2rem 0 8rem;
+        position: relative;
+        border-top: none !important;
+        margin-top: 0 !important;
+      }
+
+      .proj3-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+
+      .proj3-label {
+        font-family: 'Space Mono', monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(167,139,250,0.55);
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-bottom: 0.85rem;
+      }
+      .proj3-label::before {
+        content: '';
+        display: inline-block;
+        width: 24px; height: 1px;
+        background: #7c3aed;
+      }
+
+      .proj3-title {
+        font-family: 'Syne', sans-serif;
+        font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        color: #efefef;
+        margin: 0;
+      }
+      .proj3-title em {
+        font-family: 'Instrument Serif', serif;
+        font-style: italic;
+        background: linear-gradient(120deg, #a78bfa, #7c3aed);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* ── Drag scroll track ── */
+      .proj3-track-wrap {
+        overflow: hidden;
+        position: relative;
+        padding: 0 0 1rem;
+        /* fade edges */
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+      }
+
+      .proj3-track {
+        display: flex;
+        gap: 1.5rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        cursor: grab;
+        padding: 0 3rem 1.5rem;
+        scrollbar-width: none;
+      }
+      .proj3-track::-webkit-scrollbar { display: none; }
+      .proj3-track.dragging { cursor: grabbing; }
+
+      /* ── Card ── */
+      .proj3-item {
+        flex: 0 0 calc(33.333% - 1rem);
+        min-width: 320px;
+        scroll-snap-align: start;
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+      }
+
+      .proj3-img-box {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        border-radius: 14px;
+        background: #0e0e0e;
+      }
+
+      .proj3-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+        transition: transform 0.75s cubic-bezier(.16,1,.3,1);
+        filter: brightness(0.88) saturate(0.95);
+        pointer-events: none;
+      }
+      .proj3-item:hover .proj3-img-box img {
+        transform: scale(1.05);
+      }
+
+      .proj3-img-box::after {
+        content: '';
+        position: absolute; inset: 0;
+        background: linear-gradient(to bottom, transparent 55%, rgba(0,0,0,0.2) 100%);
+        border-radius: 14px;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* Hover overlay */
+      .proj3-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        backdrop-filter: blur(2px);
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .proj3-item:hover .proj3-overlay { opacity: 1; }
+
+      .proj3-overlay-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 1px solid rgba(255,255,255,0.25);
+        background: rgba(255,255,255,0.06);
+        backdrop-filter: blur(12px);
+        color: #fff;
+        font-family: 'Space Mono', monospace;
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.7rem 1.5rem;
+        border-radius: 999px;
+        transform: translateY(8px);
+        transition: transform 0.35s cubic-bezier(.16,1,.3,1);
+      }
+      .proj3-item:hover .proj3-overlay-btn { transform: translateY(0); }
+
+      /* Card footer */
+      .proj3-foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.1rem 0.2rem 0;
+      }
+
+      .proj3-foot-left { display: flex; flex-direction: column; gap: 0.25rem; }
+
+      .proj3-num {
+        font-family: 'Space Mono', monospace;
+        font-size: 0.55rem;
+        color: rgba(255,255,255,0.18);
+        letter-spacing: 0.1em;
+      }
+      .proj3-cat {
+        font-family: 'Space Mono', monospace;
+        font-size: 0.58rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(167,139,250,0.55);
+      }
+      .proj3-name {
+        font-family: 'Syne', sans-serif;
+        font-size: clamp(1.2rem, 2vw, 1.55rem);
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        color: #f0f0f0;
+        margin: 0;
+        line-height: 1;
+        transition: color 0.25s;
+      }
+      .proj3-item:hover .proj3-name { color: #a78bfa; }
+
+      .proj3-detail-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        border: 1px solid rgba(255,255,255,0.1);
+        background: transparent;
+        color: rgba(210,210,210,0.6);
+        font-family: 'Space Mono', monospace;
+        font-size: 0.6rem;
+        letter-spacing: 0.08em;
+        padding: 0.5rem 1rem;
+        border-radius: 999px;
+        white-space: nowrap;
+        transition: border-color 0.25s, color 0.25s, background 0.25s, transform 0.25s;
+        flex-shrink: 0;
+      }
+      .proj3-item:hover .proj3-detail-btn {
+        border-color: rgba(167,139,250,0.45);
+        color: #c4b5fd;
+        background: rgba(124,58,237,0.08);
+        transform: translateX(3px);
+      }
+
+      /* drag hint */
+      .proj3-drag-hint {
+        font-family: 'Space Mono', monospace;
+        font-size: 0.6rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.18);
+        text-align: center;
+        margin-top: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+      .proj3-drag-hint span { opacity: 0.5; }
+    </style>
+
+    <div class="wrap">
+      <div class="proj3-header reveal">
+        <div>
+          <p class="proj3-label">Selected Work</p>
+          <h2 class="proj3-title">My <em>Projects.</em></h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj3-track-wrap reveal">
+      <div class="proj3-track" id="proj3-track">
+
+        <!-- 01 Destentation -->
+        <a class="proj3-item" href="https://destentation.com" target="_blank">
+          <div class="proj3-img-box">
+            <img src="destentation.jpg" alt="Destentation" draggable="false" />
+            <div class="proj3-overlay">
+              <span class="proj3-overlay-btn">Visit Site ↗</span>
+            </div>
+          </div>
+          <div class="proj3-foot">
+            <div class="proj3-foot-left">
+              <span class="proj3-num">01</span>
+              <span class="proj3-cat">Agency</span>
+              <h3 class="proj3-name">Destentation</h3>
+            </div>
+            <span class="proj3-detail-btn">See Detail ↗</span>
+          </div>
+        </a>
+
+        <!-- 02 D-Course -->
+        <a class="proj3-item" href="https://d-course.id" target="_blank">
+          <div class="proj3-img-box">
+            <img src="dcourse.jpg" alt="D-Course" draggable="false" />
+            <div class="proj3-overlay">
+              <span class="proj3-overlay-btn">Visit Site ↗</span>
+            </div>
+          </div>
+          <div class="proj3-foot">
+            <div class="proj3-foot-left">
+              <span class="proj3-num">02</span>
+              <span class="proj3-cat">EdTech</span>
+              <h3 class="proj3-name">D-Course</h3>
+            </div>
+            <span class="proj3-detail-btn">See Detail ↗</span>
+          </div>
+        </a>
+
+        <!-- 03 Cretecs -->
+        <a class="proj3-item" href="https://cretecs.com" target="_blank">
+          <div class="proj3-img-box">
+            <img src="cretecs.jpg" alt="Cretecs" draggable="false" />
+            <div class="proj3-overlay">
+              <span class="proj3-overlay-btn">Visit Site ↗</span>
+            </div>
+          </div>
+          <div class="proj3-foot">
+            <div class="proj3-foot-left">
+              <span class="proj3-num">03</span>
+              <span class="proj3-cat">Marketplace</span>
+              <h3 class="proj3-name">Cretecs</h3>
+            </div>
+            <span class="proj3-detail-btn">See Detail ↗</span>
+          </div>
+        </a>
+
+      </div>
+      <p class="proj3-drag-hint"><span>←</span> drag to explore <span>→</span></p>
+    </div>
+
+    <script>
+      (function(){
+        const track = document.getElementById('proj3-track');
+        if (!track) return;
+        let isDown = false, startX, scrollLeft, moved = false;
+
+        track.addEventListener('mousedown', e => {
+          isDown = true; moved = false;
+          track.classList.add('dragging');
+          startX = e.pageX - track.offsetLeft;
+          scrollLeft = track.scrollLeft;
+        });
+        document.addEventListener('mouseup', e => {
+          if (!isDown) return;
+          isDown = false;
+          track.classList.remove('dragging');
+        });
+        track.addEventListener('mousemove', e => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - track.offsetLeft;
+          const walk = (x - startX) * 1.5;
+          if (Math.abs(walk) > 5) moved = true;
+          track.scrollLeft = scrollLeft - walk;
+        });
+        /* prevent link navigation when dragging */
+        track.querySelectorAll('.proj3-item').forEach(card => {
+          card.addEventListener('click', e => {
+            if (moved) e.preventDefault();
+          });
+        });
+      })();
+    </script>
+  </section>
+  <!-- ═══════ SKILLS & PROOF ═══════ -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="skills-head reveal">
+        <div>
+          <p class="sec-label">Stack</p>
+          <h2 class="sec-title">Skills &amp;<br>Proof.</h2>
+        </div>
+        <p class="skills-quote">"Building things with the tools I know best — and always picking up more."</p>
+      </div>
+      <div class="skills-hybrid reveal">
+        <div class="tech-grid-wrap">
+          <div class="tech-grid" id="tech-grid"></div>
+          <div class="tech-glow-bg"></div>
+        </div>
+        <div class="proof-col">
+          <p class="proof-label">Certificates &amp; Achievements</p>
+          <div class="cert-scroll">
+            <div class="cert-card cert-img-card" data-img="certificate1.jpg">
+              <div class="cert-logo cc-html-logo">H</div>
+              <div class="cert-info"><p class="cert-issuer">W3Schools</p><p class="cert-name">Introduction to HTML</p><span class="cert-badge">Verified ✓</span></div>
+              <span class="cert-view-hint">View ↗</span>
+            </div>
+            <div class="cert-card cert-img-card" data-img="certificate2.jpg">
+              <div class="cert-logo cc-css-logo">C</div>
+              <div class="cert-info"><p class="cert-issuer">W3Schools</p><p class="cert-name">Introduction to CSS</p><span class="cert-badge">Verified ✓</span></div>
+              <span class="cert-view-hint">View ↗</span>
+            </div>
+            <div class="cert-card cert-img-card" data-img="certificate3.jpg">
+              <div class="cert-logo cc-ccna-logo">N</div>
+              <div class="cert-info"><p class="cert-issuer">Cisco</p><p class="cert-name">CCNA Certificate</p><span class="cert-badge">Verified ✓</span></div>
+              <span class="cert-view-hint">View ↗</span>
+            </div>
+            <div class="cert-card cert-img-card" data-img="certificate4.jpg">
+              <div class="cert-logo cc-php-logo">P</div>
+              <div class="cert-info"><p class="cert-issuer">Progate</p><p class="cert-name">PHP Certificate</p><span class="cert-badge">Verified ✓</span></div>
+              <span class="cert-view-hint">View ↗</span>
+            </div>
+          </div>
+          <div class="achiev-row stagger-children">
+            <div class="achiev"><span class="achiev-ico">🧑‍🏫</span><span class="achiev-n">3+</span><span class="achiev-l">Teaching</span></div>
+            <div class="achiev"><span class="achiev-ico">💻</span><span class="achiev-n">10+</span><span class="achiev-l">Project</span></div>
+            <div class="achiev"><span class="achiev-ico">⚡</span><span class="achiev-n">8</span><span class="achiev-l">Tech Stack</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ CONTACT ═══════ -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-grid reveal">
+        <div class="contact-content-col">
+          <p class="sec-label">Contact</p>
+          <h2 class="contact-title">Let's build<br><em>something great.</em></h2>
+          <p class="contact-sub">Open to projects, collabs &amp; opportunities. I reply fast.</p>
+          <div class="contact-links">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=altopsidn@gmail.com" class="clink clink-main"><span>✉</span> Email Me</a>
+            <a href="https://github.com/AltopsIDN" target="_blank" class="clink">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 6.1 18 6.4 18 6.4c.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.2.9 2.3v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg>
+              GitHub
+            </a>
+            <a href="https://wa.me/6282329551138" target="_blank" class="clink"><span>💬</span> WhatsApp</a>
+          </div>
+
+        </div>
+        <div class="contact-photo-col">
+          <div class="contact-float-frame">
+            <img src="p.jpeg" alt="Althaf Dhia" />
+            <div class="contact-frame-deco"></div>
+            <a href="https://www.instagram.com/altopz__/" target="_blank" class="sc-card sc-ig">
+              <span class="sc-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></span>
+              <div class="sc-info"><p class="sc-name">Instagram</p><p class="sc-handle">@altopz__</p></div>
+              <span class="sc-arrow">↗</span>
+            </a>
+            <a href="https://www.tiktok.com/@ayamcalakur" target="_blank" class="sc-card sc-tt">
+              <span class="sc-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg></span>
+              <div class="sc-info"><p class="sc-name">TikTok</p><p class="sc-handle">@ayamrebus</p></div>
+              <span class="sc-arrow">↗</span>
+            </a>
+            <a href=https://www.youtube.com/@Altops-e81 target="_blank" class="sc-card sc-yt">
+              <span class="sc-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></span>
+              <div class="sc-info"><p class="sc-name">YouTube</p><p class="sc-handle">Altops</p></div>
+              <span class="sc-arrow">↗</span>
+            </a>
+            <a href="https://github.com/AltopsIDN" target="_blank" class="sc-card sc-gh">
+              <span class="sc-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 6.1 18 6.4 18 6.4c.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.2.9 2.3v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg></span>
+              <div class="sc-info"><p class="sc-name">GitHub</p><p class="sc-handle">Althaf Dhia Hamid</p></div>
+              <span class="sc-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <p>© 2026 <strong>Althaf Dhia Hamid</strong></p>
+      <p>BE YOURSELF &nbsp;—&nbsp; <span class="acc" style="color:#a78bfa;">Be GREAT</span></p>
+    </div>
+  </footer>
+
+  <!-- ═══════ CERTIFICATE LIGHTBOX ═══════ -->
+  <div class="cert-lightbox-overlay" id="cert-lightbox-overlay">
+    <button class="cert-lightbox-close" id="cert-lightbox-close">✕</button>
+    <div class="cert-lightbox-img-wrap">
+      <img id="cert-lightbox-img" src="" alt="Certificate" />
+    </div>
+  </div>
+
+  <script src="app.js"></script> 
+</body> 
+</html>
